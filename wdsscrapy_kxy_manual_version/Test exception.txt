@@ -1,0 +1,60 @@
+1. update one different
+p : 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 
+n : 6: 6, 1: 1, 2: 2, 3: 3, 4: 4
+deal : 
+          從前面比 : 
+	different_num = 0
+	#different_index = None
+	p[i - different_num] vs n[i]
+	不一樣 is_change = True & different_num++ & #different_index = i =0
+	p[i - different_num] vs n[i]
+	if 一樣 : 繼續比
+	if 不一樣 : different_num++
+	比到結束 different_num = 1 & #(defferent_index = 0) => update : 從n[0]取1個
+
+2. update two different
+p : 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 
+n : 7: 7, 6: 6, 1: 1, 2: 2, 3: 3
+deal : 
+          從前面比 : 
+	different_num = 0
+	#different_index = None
+	p[i - different_num] vs n[i]
+	不一樣 is_change = True & different_num++ & #different_index = i =0
+	p[i - different_num] vs n[i]
+	if 一樣 : 繼續比
+	if 不一樣 : different_num++
+	比到結束 different_num = 2 & #(defferent_index = 0) => update : 從n[0]取2個
+
+3. update one same
+p : 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 
+n : 1: 1, 1: 1, 2: 2, 3: 3, 4: 4 
+deal : 
+          從前面比 : 
+	different_num = 0
+	#different_index = None
+	p[i - different_num] vs n[i]
+	一樣 : 一起往後比
+	p[i - different_num] vs n[i]
+	if 一樣 : 繼續比
+	if 不一樣 : is_change = True & different_num++ & #different_index = i =1
+	比到結束 different_num = 1 & #(defferent_index = 1) => update : 從n[0]取1個
+
+4. 不能比人數 因為可能新+舊
+
+5!. if len(p) < len(n):
+p : 1: 1, 2: 2, 3: 3
+n : 4: 4, 1: 1, 2: 2, 3: 3
+deal:
+	在前面就先測如果len(p) < len(n)
+	少多少 就取多少個 ===============> 會有BUG : 萬一呢...一下氣勢高漲集資超過5個...
+
+6!. 沒半個人 : 
+	if 讀檔為total_amount = '0.00' : continue 也不記錄
+
+7!. 沒前面紀錄 : 看需求
+	全輸出
+	只記錄 不輸出
+
+8. 有紀錄 & 錢一樣 : 繼續 & 不備份
+9. 有紀錄 & 錢
